@@ -1,0 +1,18 @@
+1.
+
+FROM node:16-alpine
+
+WORKDIR /usr/src/app
+
+COPY package.json ./
+
+RUN npm install
+
+COPY ./ ./
+
+CMD ["npm", "run", "start"]
+
+2.
+
+docker build --tag test:1.0
+docker run -p 4000:3000 test:1.0
